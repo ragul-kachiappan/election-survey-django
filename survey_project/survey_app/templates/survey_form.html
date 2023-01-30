@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <!-- Fengyuan Chen's Datepicker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.css" integrity="sha256-b88RdwbRJEzRx95nCuuva+hO5ExvXXnpX+78h8DjyOE=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.js" integrity="sha256-/7FLTdzP6CfC1VBAj/rsp3Rinuuu9leMRGd354hvk0k=" crossorigin="anonymous"></script>
+    <title>Election Survey Form</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Election Survey Form</h1>
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="first_name">First Name:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="first_name"
+            name="first_name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="last_name">Last Name:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="last_name"
+            name="last_name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender:</label>
+          <br />
+          <label class="radio-inline">
+            <input
+              type="radio"
+              name="gender"
+              id="male"
+              value="Male"
+              required
+            />Male
+          </label>
+          <label class="radio-inline">
+            <input
+              type="radio"
+              name="gender"
+              id="female"
+              value="Female"
+              required
+            />Female
+          </label>
+          <label class="radio-inline">
+            <input
+              type="radio"
+              name="gender"
+              id="other"
+              value="Other"
+              required
+              />Other
+          </label>
+          <label class="radio-inline">
+            <input
+              type="radio"
+              name="gender"
+              id="unspecified"
+              value="Prefer not to say"
+              required
+              />Prefer not to say
+          </label>          
+        </div>
+        <div class="form-group">
+          <label for="dob">Date of Birth:</label>
+          <input type="text" id="dob" name="dob" required />
+        </div>
+        <div class="form-group">
+          <label for="city">City:</label>
+          <input type="text" class="form-control" id="city" name="city" required />
+        </div>
+        <div class="form-group">
+          <label for="party_name">Party Name:</label>
+          <select class="form-control" id="party_name" name="party_name">
+            <option value="AAA">AAA</option>
+            <option value="AAB">AAB</option>
+            <option value="AAC">AAC</option>
+            <option value="AAD">AAD</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <script>
+        $(function () {
+          $("#dob").datepicker();
+        });
+      </script>    
+  </body>
+</html>
